@@ -12,20 +12,20 @@ For quantitative criteria (P5, P6), use descriptive values instead (e.g., benchm
 
 ## Evaluation Matrix
 
-| Criterion | memory-hub | Mem0 | OpenViking | OGX |
-|---|---|---|---|---|
-| P1: License | | | | |
-| P2: Multi-user / Tenant Isolation | | | | |
-| P3: Security / PII Scanning | | | | |
-| P4: Storage Backend Flexibility | | | | |
-| P5: Retrieval Accuracy | | | | |
-| P6: Token Overhead / LLM Cost | | | | |
-| P7: Consolidation / Decay | | | | |
-| P8: Framework Independence | | | | |
-| P9: Provenance / Auditability | | | | |
-| P10: Active Acquisition | | | | |
-| P11: Deployment Simplicity | | | | |
-| P12: Reconciliation | | | | |
+| Criterion | memory-hub | Mem0 | OpenViking | OGX | [Cognee](cognee.md) |
+|---|---|---|---|---|---|
+| P1: License | | | | | ✅ Apache 2.0 |
+| P2: Multi-user / Tenant Isolation | | | | | 🔧 Dataset-level ACL; database-per-tenant isolation |
+| P3: Security / PII Scanning | | | | | ❌ No scanning; content stored verbatim |
+| P4: Storage Backend Flexibility | | | | | ✅ 6 graph + 5 vector + 2 relational backends |
+| P5: Retrieval Accuracy | | | | | ~90% self-reported; mixed independent results |
+| P6: Token Overhead / LLM Cost | | | | | 3-4 LLM calls per chunk; 0-1 at query time |
+| P7: Consolidation / Decay | | | | | 🔧 Manual distillation; no automatic decay |
+| P8: Framework Independence | | | | | ✅ MCP, REST, SDK, CLI; no lock-in |
+| P9: Provenance / Auditability | | | | | 🔧 DataPoint versioning + source chains; no audit log |
+| P10: Active Acquisition | | | | | ✅ Files, URLs, databases via DLT |
+| P11: Deployment Simplicity | | | | | 🔧 Minimal: 1 container; full: 3-5 containers |
+| P12: Reconciliation | | | | | 🔧 Internal truth scoring; no external validation |
 
 ## Criteria
 
@@ -83,3 +83,4 @@ Can the system validate its stored memories against authoritative external syste
 - [Mem0](https://github.com/mem0ai/mem0)
 - [OpenViking](https://github.com/volcengine/OpenViking)
 - [OGX](https://github.com/ogx-ai/ogx)
+- [Cognee](https://github.com/topoteretes/cognee)
