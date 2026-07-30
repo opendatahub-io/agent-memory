@@ -12,20 +12,20 @@ For quantitative criteria (P5, P6), use descriptive values instead (e.g., benchm
 
 ## Evaluation Matrix
 
-| Criterion | memory-hub | Mem0 | OpenViking | OGX |
-|---|---|---|---|---|
-| P1: License | | | | |
-| P2: Multi-user / Tenant Isolation | | | | |
-| P3: Security / PII Scanning | | | | |
-| P4: Storage Backend Flexibility | | | | |
-| P5: Retrieval Accuracy | | | | |
-| P6: Token Overhead / LLM Cost | | | | |
-| P7: Consolidation / Decay | | | | |
-| P8: Framework Independence | | | | |
-| P9: Provenance / Auditability | | | | |
-| P10: Active Acquisition | | | | |
-| P11: Deployment Simplicity | | | | |
-| P12: Reconciliation | | | | |
+| Criterion | memory-hub | Mem0 | OpenViking | OGX | [Graphiti](graphiti.md) |
+|---|---|---|---|---|---|
+| P1: License | | | | | ✅ Apache 2.0 (Zep CLA for contributions) |
+| P2: Multi-user / Tenant Isolation | | | | | 🔧 `group_id` partitioning; no RBAC |
+| P3: Security / PII Scanning | | | | | ❌ No scanning; content stored verbatim |
+| P4: Storage Backend Flexibility | | | | | ✅ Neo4j, FalkorDB, Kuzu, Neptune |
+| P5: Retrieval Accuracy | | | | | 94.8% DMR, 63.8% LongMemEval (self-reported) |
+| P6: Token Overhead / LLM Cost | | | | | 5+ LLM calls per episode ingested; 0 at query time |
+| P7: Consolidation / Decay | | | | | ✅ Bi-temporal edges with automatic invalidation |
+| P8: Framework Independence | | | | | ✅ MCP, REST, standalone Python library |
+| P9: Provenance / Auditability | | | | | 🔧 Episode→entity trace chains; no audit log |
+| P10: Active Acquisition | | | | | ✅ Episodes accept JSON, text, docs, fact triples |
+| P11: Deployment Simplicity | | | | | 🔧 Docker-compose; no Helm/OpenShift manifests |
+| P12: Reconciliation | | | | | ❌ No external ground-truth validation |
 
 ## Criteria
 
@@ -83,3 +83,4 @@ Can the system validate its stored memories against authoritative external syste
 - [Mem0](https://github.com/mem0ai/mem0)
 - [OpenViking](https://github.com/volcengine/OpenViking)
 - [OGX](https://github.com/ogx-ai/ogx)
+- [Graphiti](https://github.com/getzep/graphiti)
